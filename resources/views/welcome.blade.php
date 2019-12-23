@@ -201,10 +201,10 @@ function choose_width(mapinfo){
 <script>simplemaps_countrymap_mapdata.main_settings.auto_load='no';</script>
 <script>simplemaps_countrymap_mapdata.main_settings.width='responsive';</script>
 <script>
-  simplemaps_countrymap_mapdata.main_settings.state_description='<img width="104" height="110" style="float:left; margin-right: 10px; " src="/static/lib/simplemaps/map_images/frog.png"/>Easily replace with your own <b>HTML</b><br>Add your own custom photos<br />Link to other pages<br />Customize state/location colors<br />iPhone, iPad, and Android friendly<br />Easily adjust map size';
-  simplemaps_countrymap_mapdata.main_settings.location_description='Add location markers using latitude and longitude!';
-  simplemaps_countrymap_mapdata.main_settings.state_url='javascript:alert("Send users to a url (like http://simplemaps.com). Or, activate a javascript function upon click.");';
-  simplemaps_countrymap_mapdata.main_settings.location_url='javascript:alert("Send users to a url (like http://simplemaps.com). Or, activate a javascript function upon click.");';
+  simplemaps_countrymap_mapdata.main_settings.state_description='Capital';
+  simplemaps_countrymap_mapdata.main_settings.location_description='Long/Lat';
+  simplemaps_countrymap_mapdata.main_settings.state_url='javascript:alert("There are no projects here");';
+  simplemaps_countrymap_mapdata.main_settings.location_url='javascript:alert("There are no projects here.");';
   simplemaps_countrymap_mapdata.main_settings.border_size=1;</script>
 <script type="text/javascript" src="HTML5_JavaScript%20Interactive%20Nigeria%20Map%20|%20Simplemaps.com_files/countrymap.js"></script>  
 <script type="text/javascript" src="HTML5_JavaScript%20Interactive%20Nigeria%20Map%20|%20Simplemaps.com_files/mapinfo.js"></script>  
