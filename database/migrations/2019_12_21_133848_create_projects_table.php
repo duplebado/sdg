@@ -20,7 +20,7 @@ class CreateProjectsTable extends Migration
             $table->string('status')->nullable();
             $table->integer('percentage')->nullable();
             $table->string('function')->nullable();
-            $table->float('amount')->nullable();
+            $table->float('amount', 10, 2)->nullable();
             $table->date('date')->nullable();
             $table->float('abandoned')->nullable();
             $table->float('lat', 10, 8)->nullable();

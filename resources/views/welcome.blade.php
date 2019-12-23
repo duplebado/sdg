@@ -97,7 +97,7 @@
 </div>
 		 -->
     
-<div class="container-fluid white-container bottom-border">
+<!-- <div class="container-fluid white-container bottom-border">
   <div class="container">
     <div class="row" style="padding-bottom: 15px; padding-top: 15px;">
     <h2 style="font-size: 28px;">FAQs</h2>
@@ -115,13 +115,13 @@
       </div>
     </div>
   </div>              
-</div>    
+</div>     -->
 
     
     
     <div style="display: block; margin: 15px auto; text-align: center;">
       <p>
-       The SDG projects   
+       SDG Impacts at a Glance  
       </p>
     </div>
     
