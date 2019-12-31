@@ -20,11 +20,11 @@ class CreateProjectsTable extends Migration
             $table->string('status')->nullable();
             $table->integer('percentage')->nullable();
             $table->string('function')->nullable();
-            $table->float('amount', 10, 2)->nullable();
+            $table->decimal('amount', 16, 2)->nullable();
             $table->date('date')->nullable();
-            $table->float('abandoned')->nullable();
-            $table->float('lat', 10, 8)->nullable();
-            $table->float('long', 10, 8)->nullable();
+            $table->decimal('abandoned', 16, 2)->nullable();
+            $table->decimal('lat', 10, 8)->nullable();
+            $table->decimal('long', 10, 8)->nullable();
             $table->string('state')->nullable();
             $table->string('lga')->nullable();
             $table->string('community')->nullable();
@@ -32,6 +32,7 @@ class CreateProjectsTable extends Migration
             $table->string('contractor_name')->nullable();
             $table->text('contractor_address')->nullable();
             $table->string('contractor_phone')->nullable();
+            $table->unsignedBigInteger('user_id')->nullable()->default(0);
             $table->timestamps();
         });
         Schema::create('images', function (Blueprint $table) {

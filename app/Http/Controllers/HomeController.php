@@ -33,6 +33,10 @@ class HomeController extends Controller
         $project = Project::findOrFail($id);
         return view('show')->with('project', $project);
     }
+    public function projects(){
+        $projects = Project::all();
+        return view('projects')->with('projects', $projects);
+    }
     public function delete($id)
     {
         $project = Project::find($id);

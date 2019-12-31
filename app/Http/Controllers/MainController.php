@@ -58,6 +58,7 @@ class MainController extends Controller
         $project->contractor_name = $request->contractor_name;
         $project->contractor_address = $request->contractor_address;
         $project->contractor_phone = $request->contractor_phone;
+        $project->user_id = Auth::user()->id;
         if($project->save())
         {
             return view('add')->with(['status1'=>'success','status'=>'Project added successfully']);

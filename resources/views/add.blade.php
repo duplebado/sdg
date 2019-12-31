@@ -1,148 +1,251 @@
 @extends('layouts.app')
+@section('style')
+<!--Form Wizard-->
+<link rel="stylesheet" type="text/css" href="{{ asset('admin/css/jquery.steps.css')}}" />
 
+@endsection
 @section('content')
 
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">Create Project</div>
-
-                <div class="card-body">
-                        <div class="alert alert-{{ $status1 ?? ''}}" role="alert">
-                            {{ $status ?? ''}}
-                        </div>
-                    <form method="post" action="/create">
+    <section class="wrapper site-min-height">
+        <!-- page start-->
+        <div class="row">
+            <div class="col-lg-12">
+                <!--progress bar start-->
+                <section class="card">
+                    <header class="card-header">
+                        Create Project
+                    </header>
+                    <div class="card-body">
+                    <div class="alert alert-{{ $status1 ?? ''}}" role="alert">
+                        {{ $status ?? ''}}
+                    </div>
+                    <form id="wizard-validation-form" method="post" action="/create">
                     @csrf
-                        <div class="form-group">
-                            <label for="name">Project Name</label>
-                            <input type="text" name="name" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-                        </div>
-                        <div class="form-group">
-                            <label for="description">Project Description</label>
-                            <textarea name="description" id="" cols="30" rows="10" class="form-control"></textarea>
-                        </div>
-                        <div class="form-group">
-                            <label for="exampleInputPassword1">Status</label>
-                            <select name="status" id="" class="custom-select">
-                            <option value="completed">Completed</option>
-                            <option value="not completed">Not Completed</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label for="completion">Completion</label>
-                            <input type="number" name="percentage" id="" class="form-control">
-                        </div>
-                        <div class="form-group">
-                            <label for="exampleInputPassword1">Current Functionality</label>
-                            <select name="function" id="" class="custom-select">
-                            <option value="in use">In Use</option>
-                            <option value="not in use">Not In Use</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label for="amount">Total Sum</label>
-                            <input type="number" name="amount" id="" class="form-control">
-                        </div>
-                        <div class="form-group">
-                            <label for="date">Project Date</label>
-                            <input type="date" name="date" id="" class="form-control">
-                        </div>
-                        <div class="form-group">
-                            <label for="abandoned">Amount for Completion</label>
-                            <input type="number" name="abandoned" id="" class="form-control">
-                        </div>
-                        <div class="form-row">
-                            <div class="form-group col">
-                                <label for="lat">Latitude</label>
-                                <input type="number" name="lat" id="" class="form-control">
-                            </div>
-                            <div class="form-group col">
-                                <label for="long">Longitude</label>
-                                <input type="number" name="long" id="" class="form-control">
-                            </div>
-                        </div>
+                            <div>
+                                <h3>Project Details</h3>
+                                <section>
+                                    <div class="form-group clearfix">
+                                        <label class="col-lg-2 control-label " for="name">Project Name *</label>
+                                        <div class="col-lg-10">
+                                            <input id="name" name="name" type="text" class="required form-control">
 
-                        <div class="form-group">
-                            <label for="state">State</label>
-                            <select name="state" id="" class="custom-select">
-                                <option value="borno">Borno</option> 
-                                <option value="abia">Abia</option> 
-                                <option value="akwa-ibom">Akwa Ibom</option> 
-                                <option value="imo">Imo</option> 
-                                <option value="rivers">Rivers</option> 
-                                <option value="bayelsa">Bayelsa</option> 
-                                <option value="benue">Benue</option> 
-                                <option value="cross-river">Cross River</option> 
-                                <option value="taraba">Taraba</option> 
-                                <option value="kwara">Kwara</option> 
-                                <option value="lagos">Lagos</option> 
-                                <option value="niger">Niger</option> 
-                                <option value="ogun">Ogun</option> 
-                                <option value="ondo">Ondo</option> 
-                                <option value="ekiti">Ekiti</option> 
-                                <option value="osun">Osun</option> 
-                                <option value="oyo">Oyo</option> 
-                                <option value="anambra">Anamabra</option> 
-                                <option value="bauchi">Bauchi</option> 
-                                <option value="gombe">Gombe</option> 
-                                <option value="delta">Delta</option> 
-                                <option value="edo">Edo</option> 
-                                <option value="enugu">Enugu</option> 
-                                <option value="ebonyi">Ebonyi</option> 
-                                <option value="kaduna">Kaduna</option> 
-                                <option value="kogi">Kogi</option> 
-                                <option value="plateau">Plateau</option> 
-                                <option value="nassarawa">Nassarawa</option> 
-                                <option value="jigawa">Jigawa</option> 
-                                <option value="kano">Kano</option> 
-                                <option value="katsina">Katsina</option> 
-                                <option value="sokoto">Sokoto</option> 
-                                <option value="zamfara">Zamfara</option> 
-                                <option value="yobe">Yobe</option> 
-                                <option value="kebbi">Kebbi</option> 
-                                <option value="adamawa">Adamawa</option> 
-                                <option value="fct">Federal Capital Territory</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label for="lga">Local Government/Area Council</label>
-                            <input type="text" name="lga" class="form-control" id="exampleInputEmail1" >
-                        </div>
-                        <div class="form-group">
-                            <label for="community">Community</label>
-                            <input type="text" name="community" class="form-control" id="exampleInputEmail1">
-                        </div>
-                        <div class="form-group">
-                            <label for="sponsor">Sponsor</label>
-                            <input type="text" name="sponsor" class="form-control" id="exampleInputEmail1" >
-                        </div>
-                        <div class="form-group">
-                            <label for="contractor_name">Contractor's name</label>
-                            <input type="text" name="contractor_name" class="form-control" id="exampleInputEmail1" >
-                        </div>
-                        <div class="form-group">
-                            <label for="contractor_address">Contractor's Address</label>
-                            <input type="text" name="contractor_address" class="form-control" id="exampleInputEmail1" >
-                        </div>
-                        <div class="form-group">
-                            <label for="contractor_phone">Contractor's Phone</label>
-                            <input type="text" name="contractor_phone" class="form-control" id="exampleInputEmail1" >
-                        </div>
-<!-- change this to select -->
-<!-- add the step to the floats -->
-                        <div class="form-group form-check">
-                            <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                            <label class="form-check-label" for="exampleCheck1" required="required">Check if you are done</label>
-                        </div>
-                        <button type="submit" class="btn btn-primary">Submit</button>
+                                        </div>
+                                    </div>
+                                    <div class="form-group clearfix">
+                                        <label class="col-lg-2 control-label" for="description">Project Description</label>
+                                        <div class="col-lg-10">
+                                            <textarea name="description" id="" cols="30" rows="3" class="form-control"></textarea>
+                                        </div>
+                                    </div>
+                                    <div class="row clearfix col-lg-10">
+                                    <div class="form-group col">
+                                        <label for="amount">Total Sum (&#8358;)</label>
+                                        <input type="number" name="amount" id="" step="any" min="1" class="form-control">
+                                    </div>
+                                    <div class="form-group col">
+                                        <label for="date">Project Date</label>
+                                        <input type="date" name="date" id="" class="form-control">
+                                    </div>
+                                    </div>
+                                </section>
+                                <h3>Project Status</h3>
+                                <section>
+                                <div class="form-group clear-fx">
+                                    <label class="col-lg-2 control-label" for="status">Status</label>
+                                    <div class="col-lg-10">
+                                        <select name="status" id="" class="custom-select">
+                                        <option value="completed">Completed</option>
+                                        <option value="not completed">Not Completed</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group clear-fix">
+                                    <label class="col-lg-2 control-label" for="completion">Level of Completion %</label>
+                                    <div class="col-lg-10">
+                                        <input type="number" name="percentage" id="" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="form-group clear-fix">
+                                    <label class="col-lg-2 control-label" for="exampleInputPassword1">Current Functionality</label>
+                                    <div class="col-lg-10">
+                                        <select name="function" id="" class="custom-select">
+                                        <option value="in use">In Use</option>
+                                        <option value="not in use">Not In Use</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group clear-fix">
+                                    <label class="col-lg-2 control-label" for="abandoned">Amount Remaining (&#8358;)</label>
+                                    <div class="col-lg-10">
+                                        <input type="number" name="abandoned" min="1" step="any" id="" class="form-control">
+                                    </div>
+                                </div>
+
+                                </section>
+                                <h3>Location Details</h3>
+                                <section>
+
+
+                                <div class="form-row clear-fix">
+                                <div class="form-group col">
+                                    <label class="col-lg-2 control-label" for="lat">Lat.</label>
+                                    <div class="col-lg-10">
+                                        <input type="number" name="lat" step="any" id="" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="form-group col">
+                                    <label class="col-lg-2 control-label" for="long">Long</label>
+                                    <div class="col-lg-10">
+                                        <input type="number" name="long" step="any" id="" class="form-control">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-row clear-fix">
+                                <div class="form-group col clear-fix">
+                                    <label class="col-lg-2 control-label" for="state">State</label>                                        
+                                    <div class="col-lg-10">
+                                        <select name="state" id="state" class="custom-select form-control">
+                                            <option value="" selected="selected" >- Select -</option>
+                                            <option value='Abia'>Abia</option>
+                                            <option value='Adamawa'>Adamawa</option>
+                                            <option value='AkwaIbom'>AkwaIbom</option>
+                                            <option value='Anambra'>Anambra</option>
+                                            <option value='Bauchi'>Bauchi</option>
+                                            <option value='Bayelsa'>Bayelsa</option>
+                                            <option value='Benue'>Benue</option>
+                                            <option value='Borno'>Borno</option>
+                                            <option value='Cross River'>Cross River</option>
+                                            <option value='Delta'>Delta</option>
+                                            <option value='Ebonyi'>Ebonyi</option>
+                                            <option value='Edo'>Edo</option>
+                                            <option value='Ekiti'>Ekiti</option>
+                                            <option value='Enugu'>Enugu</option>
+                                            <option value='FCT'>FCT</option>
+                                            <option value='Gombe'>Gombe</option>
+                                            <option value='Imo'>Imo</option>
+                                            <option value='Jigawa'>Jigawa</option>
+                                            <option value='Kaduna'>Kaduna</option>
+                                            <option value='Kano'>Kano</option>
+                                            <option value='Katsina'>Katsina</option>
+                                            <option value='Kebbi'>Kebbi</option>
+                                            <option value='Kogi'>Kogi</option>
+                                            <option value='Kwara'>Kwara</option>
+                                            <option value='Lagos'>Lagos</option>
+                                            <option value='Nasarawa'>Nasarawa</option>
+                                            <option value='Niger'>Niger</option>
+                                            <option value='Ogun'>Ogun</option>
+                                            <option value='Ondo'>Ondo</option>
+                                            <option value='Osun'>Osun</option>
+                                            <option value='Oyo'>Oyo</option>
+                                            <option value='Plateau'>Plateau</option>
+                                            <option value='Rivers'>Rivers</option>
+                                            <option value='Sokoto'>Sokoto</option>
+                                            <option value='Taraba'>Taraba</option>
+                                            <option value='Yobe'>Yobe</option>
+                                            <option value='Zamfara'>Zamafara</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group col clear-fix">
+                                    <label class="col-lg-2" for="lga">LGA</label>
+                                        <div class="col-lg-10">
+                                            <select name="lga" id="lga" class="custom-select form-control" class="required">
+                                            </select>
+                                        </div>
+                                </div>
+                            </div>
+                            <div class="form-group clear-fix">
+                                <label class="col-lg-2" for="community">Community</label>
+                                <div class="col-lg-10">
+                                    <input type="text" name="community" class="form-control" id="exampleInputEmail1">
+                                </div>
+                            </div>
+                                </section>
+                                <h3>Stakeholder</h3>
+                                <section>
+                                <div class="form-group clear-fix">
+                                    <label class="col-lg-2" for="sponsor">Sponsor</label>
+                                    <div class="col-lg-10">
+                                        <input type="text" name="sponsor" class="form-control" id="exampleInputEmail1" >
+                                    </div>
+                                </div>
+                                <div class="form-group clear-fix">
+                                    <label class="col-lg-2" for="contractor_name">Contractor's name</label>
+                                    <div class="col-lg-10">
+                                        <input type="text" name="contractor_name" class="form-control" id="exampleInputEmail1" >
+                                    </div>
+                                </div>
+                                <div class="form-group clear-fix">
+                                    <label class="col-lg-2" for="contractor_address">Contractor's Address</label>
+                                    <div class="col-lg-10">
+                                        <input type="text" name="contractor_address" class="form-control" id="exampleInputEmail1" >
+                                    </div>
+                                </div>
+                                <div class="form-group clear-fix">
+                                    <label class="col-lg-2" for="contractor_phone">Contractor's Phone</label>
+                                    <div class="col-lg-10">
+                                        <input type="text" name="contractor_phone" class="form-control" id="exampleInputEmail1" >
+                                    </div>
+                                </div>
+
+                                </section>
+                            </div>
                     </form>
-                    
-                    
-                </div>
+                    </div>
+                </section>
             </div>
         </div>
-    </div>
-</div>
+        <!-- page end-->
+    </section>
 
+@endsection
+@section('script')
+<script src="{{asset('admin/js/lga.js')}}"></script>
+<script>
+
+//step wizard
+
+$(function() {
+    $('#default').stepy({
+        backLabel: 'Previous',
+        block: true,
+        nextLabel: 'Next',
+        titleClick: true,
+        titleTarget: '.stepy-tab'
+    });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function () {
+    var form = $("#wizard-validation-form");
+    form.validate({
+        errorPlacement: function errorPlacement(error, element) {
+            element.after(error);
+        }
+    });
+    form.children("div").steps({
+        headerTag: "h3",
+        bodyTag: "section",
+        transitionEffect: "slideLeft",
+        onStepChanging: function (event, currentIndex, newIndex) {
+            form.validate().settings.ignore = ":disabled,:hidden";
+            return form.valid();
+        },
+        onFinishing: function (event, currentIndex) {
+            form.validate().settings.ignore = ":disabled";
+            return form.valid();
+        },
+        onFinished: function (event, currentIndex) {
+            form.submit();
+        }
+    }).validate({
+        errorPlacement: function errorPlacement(error, element) {
+            element.after(error);
+        }
+    });
+});
+
+
+</script>
 @endsection
