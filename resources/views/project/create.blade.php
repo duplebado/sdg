@@ -19,7 +19,7 @@
                     <div class="alert alert-{{ $status1 ?? ''}}" role="alert">
                         {{ $status ?? ''}}
                     </div>
-                    <form id="wizard-validation-form" method="post" action="/create">
+                    <form id="wizard-validation-form" method="post" action="/projects">
                     @csrf
                             <div>
                                 <h3>Project Details</h3>

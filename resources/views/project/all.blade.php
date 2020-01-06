@@ -50,8 +50,8 @@
                           </td>
                           <td>
                               <a href="projects/{{$pro->id}}" class="btn btn-primary btn-sm"><i class="fa fa-folder"></i> View </a>
-                              <a href="projects/{{$pro->id}}/edit" class="btn btn-info btn-sm"><i class="fa fa-pencil"></i> Edit </a>
-                              <a href="#" onclick="deleteProject({{$pro->id}})" class="btn btn-danger btn-sm"><i class="fa fa-trash-o"></i> Delete </a>
+                              <!-- <a href="projects/{{$pro->id}}/edit" class="btn btn-info btn-sm"><i class="fa fa-pencil"></i> Edit </a>
+                              <a href="#" onclick="deleteProject({{$pro->id}})" class="btn btn-danger btn-sm"><i class="fa fa-trash-o"></i> Delete </a> -->
                           </td>
                       </tr>
                       @endforeach
