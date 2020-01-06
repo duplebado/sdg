@@ -32,7 +32,7 @@
                       @foreach($projects as $pro)
                       <tr>
                           <td class="p-name">
-                              <a href="projects/{{$pro->id}}">{{ (strlen($pro->name) > 70) ? substr($pro->name,0,70).'...' : $pro->name }}</a>
+                              <a href="projects/{{$pro->id}}">{{ (strlen($pro->name) > 50) ? substr($pro->name,0,50).'...' : $pro->name }}</a>
                               <br>
                               <small>Date {{ $pro->date }}</small>
                           </td>
