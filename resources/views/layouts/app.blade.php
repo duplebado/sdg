@@ -301,6 +301,8 @@
 
         <!--script for this page-->
         <script src="{{ asset('admin/js/jquery.stepy.js')}}"></script>
+        <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+        <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
         @yield('script')
     </body>
 </html>

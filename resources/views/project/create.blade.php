@@ -62,7 +62,7 @@
                                 <div class="form-group clear-fix">
                                     <label class="col-lg-2 control-label" for="completion">Level of Completion %</label>
                                     <div class="col-lg-10">
-                                        <input type="number" name="percentage" id="" class="form-control">
+                                        <input type="number" name="percentage" id="" class="form-control" max="100">
                                     </div>
                                 </div>
                                 <div class="form-group clear-fix">
