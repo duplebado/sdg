@@ -74,7 +74,7 @@ var simplemaps_countrymap_mapdata={
       description: "default",
       color: "default",
       hover_color: "default",
-      url: "default"
+      url: "/state/borno"
     },
     NGA2841: {
       name: "Abia",
@@ -85,7 +85,7 @@ var simplemaps_countrymap_mapdata={
     },
     NGA2842: {
       name: "Akwa Ibom",
-      url: "/state/akwa-ibom"
+      url: "/state/akwaibom"
     },
     NGA2843: {
       name: "Imo",
@@ -105,7 +105,7 @@ var simplemaps_countrymap_mapdata={
     },
     NGA2847: {
       name: "Cross River",
-      url: "/state/cross-river"
+      url: "/state/cross river"
     },
     NGA2848: {
       name: "Taraba",
@@ -221,7 +221,7 @@ var simplemaps_countrymap_mapdata={
     },
     NGA3470: {
       name: "Federal Capital Territory",
-      url: "/state/abuja"
+      url: "/state/fct"
     }
   },
   locations: {
