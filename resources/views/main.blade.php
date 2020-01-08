@@ -47,11 +47,7 @@
                   <div class="collapse navbar-collapse yamm mega-menu" id="navbarSupportedContent">
                       <ul class="navbar-nav mr-auto">
                           <!-- Classic list -->
-                          <li class="nav-item dropdown"><a href="#" data-toggle="dropdown" class="nav-link dropdown-toggle">State </a>
-                              <ul class="dropdown-menu wide-full">
-
-                              </ul>
-                          </li>
+                          <li><a href="/login">Create Project </a></li>
                       </ul>
                   </div>
 
