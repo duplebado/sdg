@@ -79,8 +79,8 @@ var simplemaps_countrymap_mapdata={
     NGA2841: {
       name: "Abia",
       description: "Capital: Umuahia",
-      color: "red",
-      hover_color: "blue",
+      color: "default",
+      hover_color: "default",
       url: "/state/abia"
     },
     NGA2842: {

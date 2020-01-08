@@ -18,8 +18,8 @@ function countUp(count)
         }
     }, int_speed);
 }
-
-countUp(495);
+var counter = parseInt(document.getElementById('count').innerHTML);
+countUp(counter);
 
 function countUp2(count)
 {
@@ -42,7 +42,8 @@ function countUp2(count)
     }, int_speed);
 }
 
-countUp2(947);
+var counter2 = parseInt(document.getElementById('count2').innerHTML);
+countUp2(counter2);
 
 function countUp3(count)
 {
@@ -65,7 +66,8 @@ function countUp3(count)
     }, int_speed);
 }
 
-countUp3(328);
+var counter3 = parseInt(document.getElementById('count3').innerHTML);
+countUp3(counter3);
 
 function countUp4(count)
 {
@@ -88,4 +90,5 @@ function countUp4(count)
     }, int_speed);
 }
 
-countUp4(10328);
+var counter4 = parseInt(document.getElementById('count4').innerHTML);
+countUp4(counter4);

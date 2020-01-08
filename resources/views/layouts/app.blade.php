@@ -50,7 +50,7 @@
                     <!-- user login dropdown start-->
                     <li class="dropdown">
                         <a data-toggle="dropdown" class="dropdown-toggle" href="#">
-                            <img alt="" src="{{ asset('admin/img/avatar1_small.jpg')}}">
+                            <img alt="" src="{{ asset('admin/img/user.png')}}" height="25px">
                             <span class="username">{{ Auth::user()->name }}</span>
                             <b class="caret"></b>
                         </a>
@@ -76,7 +76,7 @@
         <!--header end-->
         <!--sidebar start-->
         <aside>
-            <div id="sidebar"  class="nav-collapse ">
+            <div id="sidebar"  class="nav-collapse light-sidebar-nav" style="background: white;">
                 <!-- sidebar menu start-->
                 <ul class="sidebar-menu" id="nav-accordion">
                     <li>
@@ -93,7 +93,7 @@
                         </a>
                         <ul class="sub">
                             <li><a  href="/projects">All Projects</a></li>
-                            <li><a  href="/create/project">Add Project</a></li>
+                            <li><a  href="/projects/create">Add Project</a></li>
                         </ul>
                     </li>
                     @if(Auth::user()->id == 1)
@@ -103,8 +103,8 @@
                             <span>Users</span>
                         </a>
                         <ul class="sub">
-                            <li><a  href="/users">All Users</a></li>
-                            <li><a  href="/user/add">Create User</a></li>
+                            <li><a  href="/people">All Users</a></li>
+                            <li><a  href="/people/create">Create User</a></li>
                         </ul>
                     </li>
                     @endif
@@ -301,8 +301,8 @@
 
         <!--script for this page-->
         <script src="{{ asset('admin/js/jquery.stepy.js')}}"></script>
-        <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-        <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+        <script src="{{ asset('admin/assets/sweetalert/sweetalert.min.js') }}"></script>
+        <script src="{{ asset('admin/assets/axios/axios.min.js') }}"></script>
         @yield('script')
     </body>
 </html>

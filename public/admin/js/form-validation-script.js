@@ -1,7 +1,7 @@
 var Script = function () {
 
     $.validator.setDefaults({
-        submitHandler: function() { alert("submitted!"); }
+        submitHandler: function() { $("#signupForm").submit() }
     });
 
     $().ready(function() {
@@ -21,7 +21,7 @@ var Script = function () {
                     required: true,
                     minlength: 5
                 },
-                confirm_password: {
+                password_confirmation: {
                     required: true,
                     minlength: 5,
                     equalTo: "#password"
@@ -37,7 +37,7 @@ var Script = function () {
                 agree: "required"
             },
             messages: {
-                firstname: "Please enter your firstname",
+                firstname: "Please enter your name",
                 lastname: "Please enter your lastname",
                 username: {
                     required: "Please enter a username",
@@ -47,7 +47,7 @@ var Script = function () {
                     required: "Please provide a password",
                     minlength: "Your password must be at least 5 characters long"
                 },
-                confirm_password: {
+                password_confirmation: {
                     required: "Please provide a password",
                     minlength: "Your password must be at least 5 characters long",
                     equalTo: "Please enter the same password as above"

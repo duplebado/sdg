@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Project;
-
+use App\User;
 class HomeController extends Controller
 {
     /**
@@ -25,66 +25,10 @@ class HomeController extends Controller
     public function index()
     {
         $projects = Project::all();
-        return view('home')->with('projects', $projects);
+        $users = User::all();
+        $createdPro = Project::where('user_id', auth()->user()->id)->count();
+        $contractors = Project::distinct('contractor_name')->count('contractor_name');
+        return view('home')->with(['projects'=> $projects,'users' => $users, 'contractors'=>$contractors, 'createdPro'=>$createdPro]);
     }
 
-    public function show($id)
-    {
-        $project = Project::findOrFail($id);
-        return view('show')->with('project', $project);
-    }
-    public function projects(){
-        $projects = Project::all();
-        return view('projects')->with('projects', $projects);
-    }
-    public function delete($id)
-    {
-        $project = Project::find($id);
-
-        if($project->delete()){
-            return view('home')->with('status', 'Project has been deleted');
-        }else{
-            return view('show')->with('status', 'Error deleting project');
-        }
-    }
-    public function add()
-    {
-        return view('add');
-    }
-    public function store(Request $request)
-    {
-        $project = new Project;
-        $project->name = $request->name;
-        $project->description = $request->description;
-        $project->status = $request->status;
-        $project->percentage = $request->percentage;
-        $project->function = $request->function;
-        $project->amount = $request->amount;
-        $project->date = $request->date;
-        $project->abandoned = $request->abandoned;
-        $project->lat = $request->lat;
-        $project->long = $request->long;
-        $project->state = $request->state;
-        $project->lga = $request->lga;
-        $project->community = $request->community;
-        $project->sponsor = $request->sponsor;
-        $project->contractor_name = $request->contractor_name;
-        $project->contractor_address = $request->contractor_address;
-        $project->contractor_phone = $request->contractor_phone;
-        if($project->save())
-        {
-            return view('add')->with(['status1'=>'success','status'=>'Project added successfully']);
-        }else{
-            return view('add')->with(['status1'=>'danger','status'=>'Error adding project']);
-        }
-    }
-    public function edit($id)
-    {
-        $project = Project::findOrFail($id);
-        return view('edit')->with('project', $project);
-    }
-    public function update(Request $request)
-    {
-return null;
-    }
 }

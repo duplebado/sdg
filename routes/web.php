@@ -21,5 +21,7 @@ Auth::routes([
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/state/{state}', 'MainController@getState')->name('getState');
-Route::resource('users', 'UserController');
+Route::get('/state/projects/{project}', 'MainController@getProject')->name('getProject');
+Route::resource('people', 'UserController');
 Route::resource('projects', 'ProjectController');
+Route::post('projects/upload/{project}', 'ProjectController@imageUpload')->name('image.upload');

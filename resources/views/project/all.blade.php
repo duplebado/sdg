@@ -76,18 +76,27 @@
         dangerMode: true,
         })
         .then((willDelete) => {
-            axios({
-                url: 'projects/'+id,
-                method: 'delete'
-            })
+            if (willDelete) {
+                axios({
+                    url: '/projects/'+id,
+                    method: 'delete'
+                }).then((response)=>{
+                    if(response.data == 'deleted'){
+                        swal("Project has been deleted!",{
+                            icon: "success"
+                        }).then(()=>{
+                            window.location = '/projects'
+                        })
 
-        if (willDelete) {
-            swal("Poof! Project has been deleted!", {
-            icon: "success",
-            });
-        } else {
-            swal("Project is safe!");
-        }
+                    }else{
+                        swal("Project could not be deleted!",{
+                            icon: "failure"
+                        });
+                    }
+                })
+            } else {
+                swal("Project is safe!");
+            }
         });
     }
 function printData()
